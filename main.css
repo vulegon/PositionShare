@@ -1,0 +1,49 @@
+#target{
+  width:100%;
+  height:98vh;
+}
+.outer_border{
+  position: relative;
+  left: 20px;
+  bottom:80px;
+  cursor: pointer;
+  z-index:10;
+  width:50px;
+  height: 50px;
+  background-color: rgba(128,128,128,0.2);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+}
+.inner_border{
+  position: absolute;
+  width:40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: white;
+  margin:5px;
+}
+.fa-share-alt{
+  font-size: 25px;
+  color: blue;
+  margin:7px;
+  padding-right: 3px
+}
+
+/* 吹き出し本体 */
+.save_message{
+  position: relative;
+  top:50px;
+  padding: 10px;
+  background-color: #107b5e;
+  color: #ffffff;
+  border-radius: 10px;
+  background-color: rgba(128,128,128,0.8);
+  width:300px;
+  text-align:  center;        /* 中央寄せ */
+  margin: 0 auto;
+  display: none;
+}
+.fa-check{
+  padding-right:5px;  
+}
