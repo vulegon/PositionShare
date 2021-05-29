@@ -13,12 +13,12 @@ firebase.initializeApp(firebaseConfig);
 
 //スマホの画面ようにGoogleMapの画面の高さを調整
 $(document).ready(function () {
-  hsize = $(window).height();
-  $("section").css("height", hsize + "px");
+  var hsize = $(window).height();
+  $("#target").height(hsize);
 });
 $(window).resize(function () {
-  hsize = $(window).height();
-  $("section").css("height", hsize + "px");
+   var hsize = $(window).height();
+  $("#target").height(hsize);
 });
 
 function initMap() {
@@ -103,7 +103,16 @@ function initMap() {
       });
     }
     });
-    
+        
+  const undo_outer_border = document.createElement('div');
+  const undo_inner_border = document.createElement('div');
+  const undo_icon = document.createElement('span');
+  undo_icon.className="fa fa-undo-alt";
+  undo_inner_border.className="undo_inner_border";
+  undo_outer_border.className="undo_outer_border";
+  undo_inner_border.appendChild(undo_icon);
+  undo_outer_border.appendChild(undo_inner_border);
+  target.appendChild(undo_outer_border);
   }, 
   function() {
       alert("ブラウザが現在位置の取得(Geolocation)に失敗しました。");
@@ -164,9 +173,5 @@ function initMap() {
     $('.save_message').remove();
     });
     });
-    
-  // const undo_button = document.createElement('div');
-  
-  // undo_button.className="fas fa-undo-alt ";
-  // target.appendChild(undo_button);
+
 }

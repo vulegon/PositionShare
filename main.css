@@ -1,6 +1,5 @@
 #target{
   width:100%;
-  height:98vh;
 }
 .outer_border{
   position: relative;
@@ -46,32 +45,4 @@
 }
 .fa-check{
   padding-right:5px;  
-}
-
-.undo_outer_border{
-  position: relative;
-  left: 20px;
-  bottom:80px;
-  cursor: pointer;
-  z-index:10;
-  width:50px;
-  height: 50px;
-  background-color: rgba(128,128,128,0.2);
-  border-radius: 50%;
-  text-align: center;
-  line-height: 50px;
-}
-.undo_inner_border{
-  position: absolute;
-  width:40px;
-  height: 40px;
-  border-radius: 100%;
-  background-color: white;
-  margin:5px;
-}
-.fa-undo-alt{
-  font-size: 25px;
-  color: blue;
-  margin:7px;
-  padding-right: 3px
 }
