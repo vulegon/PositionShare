@@ -1,9 +1,3 @@
-const myApiKey = gmapapi.API_KEY;
-const url = `https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=${myApiKey}&callback=initMap`;
-const script = document.createElement('script');
-script.setAttribute('src', url);
-document.body.appendChild(script);
-
 //firebaseの設定
 const firebaseConfig = {
   apiKey: "AIzaSyA5mP5kMhpC_v3BwBRf2E63fmoLtsfK4Ps",
@@ -96,6 +90,8 @@ function initMap() {
         icon:"https://maps.google.com/mapfiles/ms/icons/green-dot.png",
       }); 
       }
+      console.log("marker[0]:"+marker[0]);
+      console.log("marker[1]:"+marker[1]);
     }
       
     //ピンを打てる数は最大1個まで。marker_countに表示されているピン+1の変数を入れておく
@@ -119,6 +115,7 @@ function initMap() {
       });
     }
     });
+    
   }, 
   function() {
       alert("ブラウザが現在位置の取得(Geolocation)に失敗しました。");
