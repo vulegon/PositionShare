@@ -29,11 +29,8 @@ function initMap() {
   var home_position = { lat: 0, lng: 0 };  /*仮の現在地の座標*/
   const db = firebase.firestore();
   const collection = db.collection('pindata');
-  var position_options = {
-        enableHighAccuracy: true,    // 高精度を要求する
-        timeout: 60000,              // 最大待ち時間（ミリ秒）
-        maximumAge: 1000,               // キャッシュ有効期間（ミリ秒）
-  };
+  var undo_count=0;
+
   
   //ブラウザが現在位置の取得(Geolocation)に対応しているかどうかの判定
   //対応しているならその位置を取得。取れないなら終了。
@@ -43,8 +40,8 @@ function initMap() {
   }
   else {
     //現在の位置をwatchPositionでリアルタイムに取得する
-    var watchId = navigator.geolocation.watchPosition(function(position) {
-    
+    // var watchId = navigator.geolocation.watchPosition(function(position) {
+    navigator.geolocation.getCurrentPosition(function(position) {
     //Firebaseに保存してあるデータの取得
     collection.get().then((querySnapshot)=>{
      querySnapshot.forEach((doc) => {
@@ -66,7 +63,7 @@ function initMap() {
       console.log(`データの取得に失敗しました${error}`);
     });
     
-    if((home_position.lat !== position.coords.latitude) && (home_position.lng !== position.coords.longitude)){
+
       //現在の位置を位置情報を元に設定 latに緯度lngに経度
       home_position.lat = position.coords.latitude;
       home_position.lng = position.coords.longitude;
@@ -77,23 +74,14 @@ function initMap() {
       center: home_position,
       zoom: 15,
       disableDefaultUI: true,
+      gestureHandling: 'greedy',
       });
       //初期マーカーを設定 
       marker[0] = new google.maps.Marker({
       position: home_position,
       map: map,
       });
-      if(marker.length >= 2){
-      marker[1] = new google.maps.Marker({
-        position: marker[1].position,
-        map: map,
-        icon:"https://maps.google.com/mapfiles/ms/icons/green-dot.png",
-      }); 
-      }
-      console.log("marker[0]:"+marker[0]);
-      console.log("marker[1]:"+marker[1]);
-    }
-      
+
     //ピンを打てる数は最大1個まで。marker_countに表示されているピン+1の変数を入れておく
     var marker_count = 2;
     //クリックした時にマーカーを追加
@@ -119,8 +107,7 @@ function initMap() {
   }, 
   function() {
       alert("ブラウザが現在位置の取得(Geolocation)に失敗しました。");
-  },
-  position_options);
+  });
   }
    //リンクをクリックした時にマーカーのデータをFirebaseに保存する
   const createLink = document.getElementById("create_link");
@@ -164,10 +151,9 @@ function initMap() {
       });
       }
     }
-    navigator.geolocation.clearWatch(watchId);
-    console.log("監視を停止しました。");
-    const save_message = document.createElement('div'); 
+    undo_count = 1;
 
+    const save_message = document.createElement('div'); 
     save_message.className="save_message";
     target.appendChild(save_message);
     save_message.innerHTML=`<span class="fas fa-check"></span>現在地と目的地を保存しました。`;
@@ -178,4 +164,9 @@ function initMap() {
     $('.save_message').remove();
     });
     });
+    
+  // const undo_button = document.createElement('div');
+  
+  // undo_button.className="fas fa-undo-alt ";
+  // target.appendChild(undo_button);
 }
