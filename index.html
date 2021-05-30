@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <title>Flickr API Test</title>
+  <title>相手と位置情報を共有</title>
   <link rel="stylesheet" href="main.css">
 </head>
 
@@ -14,12 +14,21 @@
   <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
   
   <div id="target"></div>
-  <div class="outer_border" id="create_link">
-    <div class="inner_border">
-       <span class="fa fa-share-alt"></span> 
+  
+  <div class="bottom_buttons">
+    <div class="outer_border" id="create_link">
+      <div class="inner_border">
+         <span class="fa fa-share-alt"></span> 
+      </div>
+    </div>
+    
+    <div class="undo_outer_border outer_border" id="undo_button">
+      <div class="inner_border">
+         <span class="fa fa-undo"></span> 
+      </div>
     </div>
   </div>
-
+  
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
   <script src="main.js"></script>

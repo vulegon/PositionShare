@@ -1,10 +1,15 @@
 #target{
   width:100%;
 }
-.outer_border{
+.bottom_buttons{
   position: relative;
-  left: 20px;
   bottom:80px;
+  margin:0 20px;
+  height: 50px;
+}
+
+.outer_border{
+  display: inline-block;
   cursor: pointer;
   z-index:10;
   width:50px;
@@ -45,4 +50,23 @@
 }
 .fa-check{
   padding-right:5px;  
+}
+
+.undo_outer_border{
+  float: right;
+  opacity: 0.3;
+}
+.undo_inner_border{
+  position: absolute;
+  width:40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: white;
+  margin:5px;
+}
+.fa-undo{
+  font-size: 25px;
+  color: blue;
+  margin:7px;
+  padding-right: 3px
 }
