@@ -162,6 +162,7 @@ function initMap() {
     }
     undo_count = 1;
 
+    //保存した時に出るメッセージ
     const save_message = document.createElement('div'); 
     save_message.className="save_message";
     target.appendChild(save_message);
