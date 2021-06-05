@@ -70,3 +70,16 @@
   margin:7px;
   padding-right: 3px
 }
+.trash_button{
+  position: relative;
+  bottom:190px;
+  margin-right:20px;
+  height: 50px;
+  float:right;
+}
+.fa-trash-alt{
+  font-size: 22px;
+  color: blue;
+  margin:7px;
+  padding-top:2px;
+}
