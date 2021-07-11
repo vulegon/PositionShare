@@ -1,7 +1,7 @@
 位置情報と目的地を共有できるサイトです。
 都会の街中などで待ち合わせする際にGoogleMap上で相手がどこにいるのかを確認できると便利だと思って作成しました。
 使用技術
-javaScript、jQuery、Firebase
+javaScript、jQuery、Firebase、GoogleMaps JavaScriptAPI
 【使用方法】
 ･左下の共有マークを押すとFirebaseに位置情報が登録されます。現在地は赤ピン、目的地は緑ピンです。
 ･右下のゴミ箱のアイコンは保存してあるピンのデータをすべて削除するボタンになります。
